@@ -304,6 +304,51 @@ document.querySelector(".completedButton").addEventListener("click", function ()
     });
 });
 
+document.querySelector(".allButtonMobile").addEventListener("click", function () {
+    document.querySelector(".allButtonMobile").classList.add("allShowingMobile");
+    document.querySelector(".allButtonMobile").classList.remove("allMobile");
+    document.querySelector(".activeButtonMobile").classList.add("activeMobile");
+    document.querySelector(".activeButtonMobile").classList.remove("activeShowingMobile");
+    document.querySelector(".completedButtonMobile").classList.add("completedMobile");
+    document.querySelector(".completedButtonMobile").classList.remove("completedShowingMobile");
+    document.querySelectorAll('.liItem').forEach(function (el) {
+        el.style.display = 'block';
+    });
+    document.querySelectorAll('.liItemChecked').forEach(function (el) {
+        el.style.display = 'block';
+    });
+});
+
+document.querySelector(".activeButtonMobile").addEventListener("click", function () {
+    document.querySelector(".allButtonMobile").classList.remove("allShowingMobile");
+    document.querySelector(".allButtonMobile").classList.add("allMobileMobile");
+    document.querySelector(".activeButtonMobile").classList.remove("activeMobile");
+    document.querySelector(".activeButtonMobile").classList.add("activeShowingMobile");
+    document.querySelector(".completedButtonMobile").classList.add("completedMobile");
+    document.querySelector(".completedButtonMobile").classList.remove("completedShowingMobile");
+    document.querySelectorAll('.liItem').forEach(function (el) {
+        el.style.display = 'block';
+    });
+    document.querySelectorAll('.liItemChecked').forEach(function (el) {
+        el.style.display = 'none';
+    });
+});
+
+document.querySelector(".completedButtonMobile").addEventListener("click", function () {
+    document.querySelector(".allButtonMobile").classList.remove("allShowingMobile");
+    document.querySelector(".allButtonMobile").classList.add("allMobile");
+    document.querySelector(".activeButtonMobile").classList.add("activeMobile");
+    document.querySelector(".activeButtonMobile").classList.remove("activeShowingMobile");
+    document.querySelector(".completedButtonMobile").classList.remove("completedMobile");
+    document.querySelector(".completedButtonMobile").classList.add("completedShowingMobile");
+    document.querySelectorAll('.liItem').forEach(function (el) {
+        el.style.display = 'none';
+    });
+    document.querySelectorAll('.liItemChecked').forEach(function (el) {
+        el.style.display = 'block';
+    });
+});
+
 document.querySelector(".theme").addEventListener("click", function () {
     let changedSize = document.documentElement.clientWidth;
     if (document.querySelector(".container").classList.contains("dark")) {

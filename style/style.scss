@@ -28,14 +28,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     // color: #fff;
     font-weight: 400;
 }
 
 h1 {
     font-weight: 700;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: #fff;
 }
 
@@ -63,6 +63,9 @@ li {
     // top: 0;
     z-index: -5;
     top: 0;
+    height: 300px;
+    width: 100vw;
+    max-width: 1440px;
     // min-width: 100vw;
 }
 
@@ -72,6 +75,7 @@ li {
     width: 34rem;
     // margin-left: 5rem;
     // z-index: -3;
+    margin-top: 5rem;
 
     // min-width: 100vh;
 
@@ -92,7 +96,7 @@ li {
 .createTodo {
     display: flex;
     flex-direction: row;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     margin-bottom: 1.5rem;
     // height: 3.5rem;
     padding: 1.3rem;
@@ -155,11 +159,11 @@ textarea {
     border-radius: 5px 5px 0 0;
 }
 
-.dark .allTodo{
+.dark .allTodo {
     box-shadow: 5px 80px 50px rgba(0, 0, 0, 0.5);
 }
 
-.light .allTodo{
+.light .allTodo {
     box-shadow: 5px 80px 50px rgba(210, 211, 219, 0.5);
 
 }
@@ -450,6 +454,19 @@ textarea {
     text-decoration: line-through;
 }
 
+.task {
+    &:hover {
+        background-color: $gradient1;
+        background-image: linear-gradient(to right, $gradient1, $gradient2);
+        background-size: 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+    }
+}
+
 .dark .task {
     color: $dark_lightGrayishBlue;
 }
@@ -464,13 +481,19 @@ textarea {
 }
 
 .cross {
+    width: 1.2rem;
+    height: 1.2rem;
     background-color: transparent;
     border: none;
     position: absolute;
     right: 1.5rem;
+    top: 23px;
     // margin-left: auto;
     // visibility: visible;
     visibility: hidden;
+    background-image: url("../images/icon-cross.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .dark .lastRow {
@@ -601,24 +624,228 @@ textarea {
 }
 
 .threeButtonsMobile {
-    visibility: hidden;
+    display: none;
 }
 
-@media screen and (max-width: 992px){
-    .container{
-        position: relative;
-        left: 8rem;
-        width: 40rem;
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
     }
-    .threeButtons{
-        position: relative;
-        left: 2rem;
-    }
-}
 
-@media screen and (max-width: 768px){
-    .container{
-        position: relative;
-        left: 11rem;
+    .backgroundImg {
+        max-width: 600px;
+        width: 100vw;
+        // height: 300px;
     }
+
+    .container {
+        width: 20.5rem;
+        margin-top: 5rem;
+    }
+
+    .createTodo {
+        padding: 1rem;
+    }
+
+    .dark #addTodo,
+    textarea {
+        font-size: 0.8rem;
+        // width: 10rem;
+
+        &::placeholder {
+            font-size: 0.8rem;
+        }
+    }
+
+    .light #addTodo,
+    textarea {
+        font-size: 0.8rem;
+        // width: 10rem;
+
+        &::placeholder {
+            font-size: 0.8rem;
+        }
+    }
+
+    .box {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+
+    .radioContainer {
+        margin-right: 1rem;
+    }
+
+    .checkBoxChecked {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .dark .checkBox {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .light .checkBox {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .dark .radioGradient {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .light .radioGradient {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .dark .dummy {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .light .dummy {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .dark .threeButtonsMobile {
+        box-shadow: 5px 10px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .light .threeButtonsMobile {
+        box-shadow: 5px 10px 50px rgba(210, 211, 219, 0.5);
+
+    }
+
+    .text {
+        max-width: 15rem;
+    }
+
+    .cross {
+        top: 20px;
+        right: 0.8rem;
+        height: 0.8rem;
+        width: 0.8rem;
+        visibility: visible;
+        background-image: url("../images/icon-cross.svg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .threeButtons {
+        display: none;
+    }
+
+    .dark .lastRow {
+        font-size: 0.7rem;
+        padding: 1rem;
+    }
+
+    .light .lastRow {
+        font-size: 0.7rem;
+        padding: 1rem;
+    }
+
+    .dark .clearCompleted {
+        font-weight: 400;
+        font-size: 0.8rem;
+    }
+
+    .light .clearCompleted {
+        font-weight: 400;
+        font-size: 0.8rem;
+    }
+
+    .threeButtonsMobile {
+        display: flex;
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 1rem;
+        margin-top: 1rem;
+        justify-content: center;
+        border-radius: 5px;
+    }
+
+    .dark .threeButtonsMobile {
+        background-color: $dark_veryDarkDesaturatedBlue;
+        color: $dark_darkGrayishBlue;
+    }
+
+    .light .threeButtonsMobile {
+        background-color: #fff;
+        color: $light_darkGrayishBlue;
+    }
+
+    .dark .allMobile {
+        cursor: pointer;
+
+        &:hover {
+            color: $dark_lightGrayishBlue_hover;
+        }
+    }
+
+    .light .allMobile {
+        cursor: pointer;
+
+        &:hover {
+            color: #000;
+        }
+    }
+
+    .allShowingMobile {
+        cursor: pointer;
+        color: $brightBlue;
+    }
+
+    .dark .activeMobile {
+        margin-left: 20px;
+        cursor: pointer;
+
+        &:hover {
+            color: $dark_lightGrayishBlue_hover;
+        }
+    }
+
+    .light .activeMobile {
+        margin-left: 20px;
+        cursor: pointer;
+
+        &:hover {
+            color: #000;
+        }
+    }
+
+    .activeShowingMobile {
+        cursor: pointer;
+        margin-left: 20px;
+        color: $brightBlue;
+    }
+
+    .dark .completedMobile {
+        margin-left: 20px;
+        cursor: pointer;
+
+        &:hover {
+            color: $dark_lightGrayishBlue_hover;
+        }
+    }
+
+    .light .completedMobile {
+        margin-left: 20px;
+        cursor: pointer;
+
+        &:hover {
+            color: #000;
+        }
+    }
+
+    .completedShowingMobile {
+        cursor: pointer;
+        margin-left: 20px;
+        color: $brightBlue;
+    }
+
 }
