@@ -7,6 +7,9 @@
   <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/style.css">
 
   <title>Frontend Mentor | Todo app</title>
 
@@ -24,31 +27,122 @@
 </head>
 
 <body>
-  <h1>Todo</h1>
+    <div class="imageContainer">
+      <img class="backgroundImg" src="images/bg-desktop-dark.jpg" alt="bg-image">
+    </div>
 
-  <div class="createTodo">
-    <input type="button" id="addTodo" value= "Create a new todo..."/>
-  </div>
+    <div class="container dark">
 
-  <div class="allTod">
-    <ul class="list">
+      <div class="headingBox">
+        <h1>T O D O</h1>
+        <button class="theme"><img src="images/icon-sun.svg" alt="light theme"></button>
+      </div>
 
-    </ul>
-  </div>
+      <div class="createTodo">
+        <!-- <input type="button" id="addTodo" value= "Create a new todo..."/> -->
+        <div class="radioContainer">
+          <button class="dummy"></button>
+        </div>
+        <input type="text" id="addTodo" placeholder="Create a new todo..." />
+      </div>
 
-  <div class="itemsLeft">
-    <i class="left"></i> items left
-  </div>
+      <div class="allTodo">
+        <ul id="todoList">
 
-  <div class="all">All</div>
-  <div class="active">Active</div>
-  <div class="completed">Completed</div>
-  <div class="clearCompleted">Clear Completed</div>
+          <li class="liItemChecked">
+            <div class="todoBoxChecked box">
+              <div class="radioContainer">
+                <button class="checkBoxChecked radio" value="off"><img src="images/icon-check.svg" alt="check"></button>
+              </div>
+              <div class="taskChecked text">Complete online JavaScript course</div>
+              <button class="cross"><img src="images/icon-cross.svg" alt="cross"></button>
+            </div>
+            <hr class="lineChecked">
+          </li>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+          <li class="liItem">
+            <div class="todoBox box">
+              <div class="radioContainer">
+                <button class="checkBox radio" value="on"></button>
+              </div>
+              <div class="task text">Jog around the park 3x</div>
+              <button class="cross"><img src="images/icon-cross.svg" alt="cross"></button>
+            </div>
+            <hr class="line">
+          </li>
+
+          <li class="liItem">
+            <div class="todoBox box">
+              <div class="radioContainer">
+                <button class="checkBox radio" value="on"></button>
+              </div>
+              <div class="task text">10 minutes meditation</div>
+              <button class="cross"><img src="images/icon-cross.svg" alt="cross"></button>
+            </div>
+            <hr class="line">
+          </li>
+
+          <li class="liItem">
+            <div class="todoBox box">
+              <div class="radioContainer">
+                <button class="checkBox radio" value="on"></button>
+              </div>
+              <div class="task text">Read for 1 hour</div>
+              <button class="cross"><img src="images/icon-cross.svg" alt="cross"></button>
+            </div>
+            <hr class="line">
+          </li>
+
+          <li class="liItem">
+            <div class="todoBox box">
+              <div class="radioContainer">
+                <button class="checkBox radio" value="on"></button>
+              </div>
+              <div class="task text">Pick up groceries</div>
+              <button class="cross"><img src="images/icon-cross.svg" alt="cross"></button>
+            </div>
+            <hr class="line">
+          </li>
+
+          <li class="liItem">
+            <div class="todoBox box">
+              <div class="radioContainer">
+                <button class="checkBox radio" value="on"></button>
+              </div>
+              <div class="task text">Complete Todo App on Frontend Mentor</div>
+              <button class="cross"><img src="images/icon-cross.svg" alt="cross"></button>
+            </div>
+            <hr class="line">
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="lastRow">
+        <div class="itemsLeft">
+          <i class="left"></i> items left
+        </div>
+
+        <div class="threeButtons">
+          <div class="allShowing allButton">All</div>
+          <div class="active activeButton">Active</div>
+          <div class="completed completedButton">Completed</div>
+        </div>
+
+        <div class="clearCompleted">Clear Completed</div>
+      </div>
+    </div>
+
+    <div class="threeButtonsMobile">
+      <div class="all">All</div>
+      <div class="active">Active</div>
+      <div class="completed">Completed</div>
+    </div>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
 
   <script src="index.js"></script>
 </body>
