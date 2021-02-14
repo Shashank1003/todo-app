@@ -52,7 +52,6 @@ todo.addEventListener("keydown", function (event) {
                 lineHr.className = "line";
                 // btn.innerHTML = "Click";
                 cross.className = "cross";
-                cross.innerHTML = '<img src="images/icon-cross.svg" alt="cross">';
                 remaining++;
                 document.querySelector(".left").innerHTML = remaining;
 
