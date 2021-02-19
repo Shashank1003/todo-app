@@ -31,9 +31,10 @@ body {
     // justify-content: center;
     // color: #fff;
     font-weight: 400;
+    transition: all 0.6s ease-in-out;
 }
 
-h1 {
+h2 {
     font-weight: 700;
     font-size: 2.5rem;
     color: #fff;
@@ -41,6 +42,19 @@ h1 {
 
 li {
     list-style: none;
+}
+
+@mixin animation {
+    transition: all 0.4s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.clearCompletedAnimation{
+    transform: translateX(50px);
+    transition: all 10s ease-in-out;
 }
 
 .dark hr {
@@ -53,6 +67,7 @@ li {
     border-top: solid 0.1px $light_lightGrayishBlue;
 }
 
+// Background image
 .imageContainer {
     display: flex;
     justify-content: center;
@@ -81,6 +96,7 @@ li {
 
 }
 
+// Heading and theme are in one div
 .headingBox {
     display: flex;
     flex-direction: row;
@@ -91,8 +107,10 @@ li {
     border: none;
     margin-left: auto;
     cursor: pointer;
+    @include animation();
 }
 
+// Create a new todo
 .createTodo {
     display: flex;
     flex-direction: row;
@@ -101,6 +119,7 @@ li {
     // height: 3.5rem;
     padding: 1.3rem;
     border-radius: 5px;
+    @include animation();
 }
 
 .dark .createTodo {
@@ -181,6 +200,7 @@ textarea {
     background-clip: padding-box;
     border-radius: 100%;
     cursor: pointer;
+    transition: all 0.6s ease-in-out;
 
     &::before {
         content: "";
@@ -197,6 +217,7 @@ textarea {
     }
 }
 
+// To effectively assign z-index to back layer of button
 .radioContainer {
     position: relative;
     z-index: 2;
@@ -295,6 +316,7 @@ textarea {
     }
 }
 
+// To create hover effect on unchecked buttons
 .dark .radioGradient {
     height: 1.5rem;
     width: 1.5rem;
@@ -353,6 +375,7 @@ textarea {
     }
 }
 
+// No functionality. Just for design. (Position- with create ToDo)
 .light .dummy {
     height: 1.5rem;
     width: 1.5rem;
@@ -421,6 +444,7 @@ textarea {
     background-color: #fff;
 }
 
+// Contains all the elements of a single ToDo
 .box {
     display: flex;
     flex-direction: row;
@@ -442,16 +466,20 @@ textarea {
     position: relative;
     top: 5px;
     cursor: pointer;
+    @include animation();
+    transition: 0s;
 }
 
 .dark .taskChecked {
     color: $dark_veryDarkGrayishBlue1;
     text-decoration: line-through;
+    transition: all 0.6s ease-in-out;
 }
 
 .light .taskChecked {
     color: $light_lightGrayishBlue;
     text-decoration: line-through;
+    transition: all 0.6s ease-in-out;
 }
 
 .task {
@@ -494,30 +522,30 @@ textarea {
     background-image: url("../images/icon-cross.svg");
     background-repeat: no-repeat;
     background-size: 100%;
+    // @include animation();
 }
 
-.dark .lastRow {
+// Bottom row that contains clear completed button
+.lastRow {
     display: flex;
     flex-direction: row;
     // height: 3rem;
-    background-color: $dark_veryDarkDesaturatedBlue;
-    color: $dark_darkGrayishBlue;
     padding: 1.2rem;
     font-size: 0.8rem;
     border-radius: 0 0 5px 5px;
+}
+
+.dark .lastRow{
+    background-color: $dark_veryDarkDesaturatedBlue;
+    color: $dark_darkGrayishBlue;
 }
 
 .light .lastRow {
-    display: flex;
-    flex-direction: row;
-    // height: 3rem;
     background-color: #fff;
     color: $light_darkGrayishBlue;
-    padding: 1.2rem;
-    font-size: 0.8rem;
-    border-radius: 0 0 5px 5px;
 }
 
+// Three buttons: All, Active and Completed
 .threeButtons {
     display: flex;
     flex-direction: row;
@@ -532,6 +560,7 @@ textarea {
     cursor: pointer;
     font-weight: 400;
     font-size: 0.9rem;
+    @include animation();
 
     &:hover {
         color: $dark_lightGrayishBlue_hover;
@@ -544,26 +573,37 @@ textarea {
     cursor: pointer;
     font-weight: 400;
     font-size: 0.9rem;
+    @include animation();
 
     &:hover {
         color: #000;
     }
 }
 
-.dark .all {
+@mixin threeButtonsLight {
     cursor: pointer;
+    @include animation();
+
+    &:hover {
+        color: #000;
+    }
+}
+
+@mixin threeButtonsDark {
+    cursor: pointer;
+    @include animation();
 
     &:hover {
         color: $dark_lightGrayishBlue_hover;
     }
 }
 
-.light .all {
-    cursor: pointer;
+.dark .all {
+    @include threeButtonsDark();
+}
 
-    &:hover {
-        color: #000;
-    }
+.light .all {
+    @include threeButtonsDark();
 }
 
 .allShowing {
@@ -573,20 +613,12 @@ textarea {
 
 .dark .active {
     margin-left: 20px;
-    cursor: pointer;
-
-    &:hover {
-        color: $dark_lightGrayishBlue_hover;
-    }
+    @include threeButtonsDark();
 }
 
 .light .active {
     margin-left: 20px;
-    cursor: pointer;
-
-    &:hover {
-        color: #000;
-    }
+    @include threeButtonsLight();
 }
 
 .activeShowing {
@@ -597,20 +629,12 @@ textarea {
 
 .dark .completed {
     margin-left: 20px;
-    cursor: pointer;
-
-    &:hover {
-        color: $dark_lightGrayishBlue_hover;
-    }
+    @include threeButtonsDark();
 }
 
 .light .completed {
     margin-left: 20px;
-    cursor: pointer;
-
-    &:hover {
-        color: #000;
-    }
+    @include threeButtonsLight();
 }
 
 .completedShowing {
@@ -623,6 +647,7 @@ textarea {
     margin-top: 20px;
 }
 
+// Three buttons are on seperate row in mobile view
 .threeButtonsMobile {
     display: none;
 }
@@ -780,19 +805,11 @@ textarea {
     }
 
     .dark .allMobile {
-        cursor: pointer;
-
-        &:hover {
-            color: $dark_lightGrayishBlue_hover;
-        }
+        @include threeButtonsDark();
     }
 
     .light .allMobile {
-        cursor: pointer;
-
-        &:hover {
-            color: #000;
-        }
+        @include threeButtonsLight();
     }
 
     .allShowingMobile {
@@ -802,20 +819,12 @@ textarea {
 
     .dark .activeMobile {
         margin-left: 20px;
-        cursor: pointer;
-
-        &:hover {
-            color: $dark_lightGrayishBlue_hover;
-        }
+        @include threeButtonsDark();
     }
 
     .light .activeMobile {
         margin-left: 20px;
-        cursor: pointer;
-
-        &:hover {
-            color: #000;
-        }
+        @include threeButtonsLight();
     }
 
     .activeShowingMobile {
@@ -826,20 +835,12 @@ textarea {
 
     .dark .completedMobile {
         margin-left: 20px;
-        cursor: pointer;
-
-        &:hover {
-            color: $dark_lightGrayishBlue_hover;
-        }
+        @include threeButtonsDark();
     }
 
     .light .completedMobile {
         margin-left: 20px;
-        cursor: pointer;
-
-        &:hover {
-            color: #000;
-        }
+        @include threeButtonsLight();
     }
 
     .completedShowingMobile {

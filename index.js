@@ -10,11 +10,10 @@ var lines = document.querySelectorAll("hr");
 var fired = false;
 var remaining = 5;
 document.querySelector(".left").innerHTML = remaining;
-// alert("Hello");
-// Using count to restart the tick function because of limit issues.
 // Using fired for ignoring long key press.
 //  Using remaining for items left.
 
+// Adding a new ToDo
 todo.addEventListener("keydown", function (event) {
     if (fired == false) {
         fired = true;
@@ -31,6 +30,7 @@ todo.addEventListener("keydown", function (event) {
                 let radioBox = document.createElement("div");
                 let lineHr = document.createElement("hr");
 
+                // Adding elements to the html in a step-wise manner
                 textBox.appendChild(newText);
                 radioBox.appendChild(btn);
                 containerBox.appendChild(radioBox);
@@ -40,6 +40,7 @@ todo.addEventListener("keydown", function (event) {
                 newTodo.appendChild(lineHr);
                 todoList.appendChild(newTodo);
 
+                // Giving class name to newly created ToDo
                 containerBox.className = "todoBox";
                 newTodo.className = "liItem"
                 textBox.className = "task";
@@ -55,6 +56,7 @@ todo.addEventListener("keydown", function (event) {
                 remaining++;
                 document.querySelector(".left").innerHTML = remaining;
 
+                // Adding functionality to toggle ToDo done button
                 btn.addEventListener("click", function () {
                     if (btn.value == "on") {
                         btn.value = "off";
@@ -89,6 +91,7 @@ todo.addEventListener("keydown", function (event) {
                     }
                 });
 
+                // Adding functionality to toggle ToDo with click on text
                 textBox.addEventListener("click", function () {
                     if (btn.value == "on") {
                         btn.value = "off";
@@ -123,6 +126,7 @@ todo.addEventListener("keydown", function (event) {
                     }
                 });
 
+                // Adding functionality to cross button
                 cross.addEventListener("click", function () {
                     let parent = newTodo.parentNode;
                     parent.removeChild(newTodo);
@@ -133,6 +137,7 @@ todo.addEventListener("keydown", function (event) {
                     }
                 });
 
+                // Adding hover effect (Gradient borders) to unchecked buttons
                 textBox.addEventListener("mouseover", function () {
                     btn.classList.add("radioGradient");
                 });
@@ -148,6 +153,7 @@ addTodo.addEventListener("keyup", function () {
     fired = false;
 });
 
+// Adding functionality to toggle ToDo done button of first 6 ToDo
 for (let i = 0; i < todoListLi.length; i++) {
     todoListButton[i].addEventListener("click", function () {
         if (todoListButton[i].value == "on") {
@@ -184,6 +190,7 @@ for (let i = 0; i < todoListLi.length; i++) {
     });
 }
 
+// Adding functionality to toggle ToDo with click on text of first 6 Todo
 for (let i = 0; i < todoListText.length; i++) {
     todoListText[i].addEventListener("click", function () {
         if (todoListButton[i].value == "on") {
@@ -221,6 +228,7 @@ for (let i = 0; i < todoListText.length; i++) {
     });
 }
 
+// Adding functionality to cross button of first 6 ToDO
 for (let i = 0; i < todoListCross.length; i++) {
     todoListCross[i].addEventListener("click", function () {
         let parent = todoListLi[i].parentNode;
@@ -234,20 +242,28 @@ for (let i = 0; i < todoListCross.length; i++) {
     });
 }
 
+// Adding functionality to clear completed button
+function clear(child) {
+    for (let i = (child.length - 1); i > -1; i--) {
+        let parent = child[i].parentNode;
+        parent.removeChild(child[i]);
+    }
+}
+
 document.querySelector(".clearCompleted").addEventListener("click", function () {
     let todoListLiCompleted = document.querySelectorAll("#todoList .liItemChecked");
     let hr = document.querySelectorAll(".lineChecked");
     if (todoListLiCompleted.length == 0) {
         alert("Nothing to clear!");
     } else {
-        for (let i = (todoListLiCompleted.length - 1); i > -1; i--) {
-            let parent = todoListLiCompleted[i].parentNode;
-            parent.removeChild(todoListLiCompleted[i]);
-
+        for (let j = 0; j < todoListLiCompleted.length; j++) {
+            todoListLiCompleted[j].classList.add("clearCompletedAnimation");
+            setTimeout(clear(todoListLiCompleted), 1000);
         }
     }
 });
 
+// Adding hover effect (Gradient borders) to unchecked button on first 6 ToDo
 for (let i = 0; i < todoListText.length; i++) {
     todoListText[i].addEventListener("mouseover", function () {
         todoListButton[i].classList.add("radioGradient");
@@ -258,6 +274,7 @@ for (let i = 0; i < todoListText.length; i++) {
     });
 }
 
+// Adding functionality and effects on three-buttons (Desktop-view)
 document.querySelector(".allButton").addEventListener("click", function () {
     document.querySelector(".allButton").classList.add("allShowing");
     document.querySelector(".allButton").classList.remove("all");
@@ -303,6 +320,7 @@ document.querySelector(".completedButton").addEventListener("click", function ()
     });
 });
 
+// Adding functionality and effects on three buttons (mobile-view)
 document.querySelector(".allButtonMobile").addEventListener("click", function () {
     document.querySelector(".allButtonMobile").classList.add("allShowingMobile");
     document.querySelector(".allButtonMobile").classList.remove("allMobile");
@@ -348,6 +366,7 @@ document.querySelector(".completedButtonMobile").addEventListener("click", funct
     });
 });
 
+// Adding functionality to theme button
 document.querySelector(".theme").addEventListener("click", function () {
     let changedSize = document.documentElement.clientWidth;
     if (document.querySelector(".container").classList.contains("dark")) {
@@ -373,6 +392,7 @@ document.querySelector(".theme").addEventListener("click", function () {
     }
 })
 
+// Media querries (for mobile view)
 window.addEventListener("resize", sizeChange);
 sizeChange();
 

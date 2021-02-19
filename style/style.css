@@ -18,9 +18,11 @@ body {
       -ms-flex-align: center;
           align-items: center;
   font-weight: 400;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
-h1 {
+h2 {
   font-weight: 700;
   font-size: 2.5rem;
   color: #fff;
@@ -28,6 +30,13 @@ h1 {
 
 li {
   list-style: none;
+}
+
+.clearCompletedAnimation {
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+  -webkit-transition: all 10s ease-in-out;
+  transition: all 10s ease-in-out;
 }
 
 .dark hr {
@@ -79,6 +88,13 @@ li {
   border: none;
   margin-left: auto;
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.theme:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .createTodo {
@@ -93,6 +109,13 @@ li {
   margin-bottom: 1.5rem;
   padding: 1.3rem;
   border-radius: 5px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.createTodo:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .dark .createTodo {
@@ -242,6 +265,8 @@ textarea::placeholder {
   background-clip: padding-box;
   border-radius: 100%;
   cursor: pointer;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .checkBoxChecked::before {
@@ -500,16 +525,29 @@ textarea::placeholder {
   position: relative;
   top: 5px;
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: 0s;
+  transition: 0s;
+}
+
+.text:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .dark .taskChecked {
   color: #4d5066;
   text-decoration: line-through;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .light .taskChecked {
   color: #d2d3db;
   text-decoration: line-through;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .task:hover {
@@ -552,7 +590,7 @@ textarea::placeholder {
   background-size: 100%;
 }
 
-.dark .lastRow {
+.lastRow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -560,26 +598,19 @@ textarea::placeholder {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  background-color: #25273c;
-  color: #777a92;
   padding: 1.2rem;
   font-size: 0.8rem;
   border-radius: 0 0 5px 5px;
 }
 
+.dark .lastRow {
+  background-color: #25273c;
+  color: #777a92;
+}
+
 .light .lastRow {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   background-color: #fff;
   color: #9394a5;
-  padding: 1.2rem;
-  font-size: 0.8rem;
-  border-radius: 0 0 5px 5px;
 }
 
 .threeButtons {
@@ -601,6 +632,13 @@ textarea::placeholder {
   cursor: pointer;
   font-weight: 400;
   font-size: 0.9rem;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.dark .clearCompleted:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .dark .clearCompleted:hover {
@@ -613,6 +651,13 @@ textarea::placeholder {
   cursor: pointer;
   font-weight: 400;
   font-size: 0.9rem;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.light .clearCompleted:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .light .clearCompleted:hover {
@@ -621,6 +666,13 @@ textarea::placeholder {
 
 .dark .all {
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.dark .all:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .dark .all:hover {
@@ -629,10 +681,17 @@ textarea::placeholder {
 
 .light .all {
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .light .all:hover {
-  color: #000;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.light .all:hover {
+  color: #e4e5f1;
 }
 
 .allShowing {
@@ -643,6 +702,13 @@ textarea::placeholder {
 .dark .active {
   margin-left: 20px;
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.dark .active:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .dark .active:hover {
@@ -652,6 +718,13 @@ textarea::placeholder {
 .light .active {
   margin-left: 20px;
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.light .active:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .light .active:hover {
@@ -667,6 +740,13 @@ textarea::placeholder {
 .dark .completed {
   margin-left: 20px;
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.dark .completed:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .dark .completed:hover {
@@ -676,6 +756,13 @@ textarea::placeholder {
 .light .completed {
   margin-left: 20px;
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.light .completed:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .light .completed:hover {
@@ -849,12 +936,24 @@ textarea::placeholder {
   }
   .dark .allMobile {
     cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+  .dark .allMobile:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   .dark .allMobile:hover {
     color: #e4e5f1;
   }
   .light .allMobile {
     cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+  .light .allMobile:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   .light .allMobile:hover {
     color: #000;
@@ -866,6 +965,12 @@ textarea::placeholder {
   .dark .activeMobile {
     margin-left: 20px;
     cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+  .dark .activeMobile:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   .dark .activeMobile:hover {
     color: #e4e5f1;
@@ -873,6 +978,12 @@ textarea::placeholder {
   .light .activeMobile {
     margin-left: 20px;
     cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+  .light .activeMobile:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   .light .activeMobile:hover {
     color: #000;
@@ -885,6 +996,12 @@ textarea::placeholder {
   .dark .completedMobile {
     margin-left: 20px;
     cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+  .dark .completedMobile:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   .dark .completedMobile:hover {
     color: #e4e5f1;
@@ -892,6 +1009,12 @@ textarea::placeholder {
   .light .completedMobile {
     margin-left: 20px;
     cursor: pointer;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+  .light .completedMobile:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   .light .completedMobile:hover {
     color: #000;
